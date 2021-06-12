@@ -1,0 +1,73 @@
+# digitalOcean
+
+https://github.com/thetminnhtun/web-development-note/blob/master/hosting_laravel_on_digitalocean.md
+https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-2
+
+
+ssl => https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04
+
+database root access => https://tableplus.com/blog/2018/10/how-to-create-a-superuser-in-mysql.html
+
+server => https://laravel.com/docs/8.x/deployment
+
+apt update
+apt upgrade
+apt install nginx -y
+http://server_domain_or_IP
+cd /var/www/html/index.nginx-debian.html
+
+PHP
+apt install php-fpm php-mysql
+
+For Laravel and composer
+
+apt install php php-curl php-common php-cli php-mysql php-mbstring php-fpm php-bcmath php-xml php-zip -y
+
+MySQL
+apt install mysql-server -y
+mysql_secure_installation
+mysql -u root
+SELECT user,authentication_string,plugin,host FROM mysql.user;
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';
+FLUSH PRIVILEGES;
+mysql -u root -p
+nano /etc/nginx/sites-available/default
+
+server {
+    listen 80;
+    server_name example.com;
+    root /var/www/html/blog/public;
+
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+
+    index index.html index.htm index.php;
+
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+
+nginx -t
+
+systemctl reload nginx
