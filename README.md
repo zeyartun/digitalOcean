@@ -6,6 +6,8 @@ https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-2
 
 ssl => https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04
 
+ssl => https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx
+
 database root access => https://tableplus.com/blog/2018/10/how-to-create-a-superuser-in-mysql.html
 
 server => https://laravel.com/docs/8.x/deployment
