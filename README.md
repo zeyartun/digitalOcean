@@ -3,6 +3,7 @@
 https://github.com/thetminnhtun/web-development-note/blob/master/hosting_laravel_on_digitalocean.md
 https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-2
 
+Digital ocean install php => https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04#step-4-%E2%80%94-creating-a-virtual-host-for-your-website
 
 ssl => https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04
 
