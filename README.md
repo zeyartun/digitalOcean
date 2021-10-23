@@ -35,41 +35,40 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_pas
 FLUSH PRIVILEGES;
 mysql -u root -p
 nano /etc/nginx/sites-available/default
+#############################################################################
+server { 
 
-server {
-    listen 80;
-    server_name example.com;
-    root /var/www/html/blog/public;
+listen 80; 
 
-    add_header X-Frame-Options "SAMEORIGIN";
-    add_header X-XSS-Protection "1; mode=block";
-    add_header X-Content-Type-Options "nosniff";
+    server_name api.asxox.com.mm www.api.asxox.com.mm; 
 
-    index index.html index.htm index.php;
+    root /var/www/asxox-api/public; 
 
-    charset utf-8;
+    index index.html index.htm index.php; 
 
-    location / {
-        try_files $uri $uri/ /index.php?$query_string;
-    }
+    location / { 
 
-    location = /favicon.ico { access_log off; log_not_found off; }
-    location = /robots.txt  { access_log off; log_not_found off; }
+        try_files $uri $uri/ /index.php?$args; 
 
-    error_page 404 /index.php;
+    } 
 
-    location ~ \.php$ {
-        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
-        include fastcgi_params;
-    }
+    location ~ \.php$ { 
 
-    location ~ /\.(?!well-known).* {
-        deny all;
-    }
-}
+        include snippets/fastcgi-php.conf; 
 
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock; 
+
+     } 
+
+
+    location ~ /\.ht { 
+
+        deny all; 
+
+    } 
+
+} 
+#################################################
 nginx -t
 
 systemctl reload nginx
