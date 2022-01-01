@@ -6,7 +6,7 @@ https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-2
 Digital ocean install php for Apache => https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04#step-4-%E2%80%94-creating-a-virtual-host-for-your-website
 
 ssl => https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04
-
+https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04
 ssl => https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx
 
 database root access => https://tableplus.com/blog/2018/10/how-to-create-a-superuser-in-mysql.html
