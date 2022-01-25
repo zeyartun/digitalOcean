@@ -11,6 +11,9 @@ ssl => https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx
 
 database root access => https://tableplus.com/blog/2018/10/how-to-create-a-superuser-in-mysql.html
 
+# composer Update 1 to 2
+https://www.digitalocean.com/community/tutorials/how-to-install-composer-on-ubuntu-20-04-quickstart
+
 server => https://laravel.com/docs/8.x/deployment
 
 apt update
